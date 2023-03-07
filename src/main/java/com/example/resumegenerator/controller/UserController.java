@@ -123,6 +123,7 @@ public class UserController {
 		}
 	}
 	
+	// to update a resume for a user
 	@PutMapping("/user/{username}/resume/{resumeId}")
 	public ResponseEntity<Resume> updateResumeForUser(
 			@PathVariable("username") String username,
