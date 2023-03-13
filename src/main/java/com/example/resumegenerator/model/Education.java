@@ -20,23 +20,14 @@ public class Education {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	@Column(name = "qualification")
-	private String qualification;
+	@Column(name = "degree")
+	private String degree;
 
 	@Column(name = "institution")
 	private String institution;
 
-	@Column(name = "edu_location")
-	private String eduLocation;
-
-	@Column(name = "edu_start_date")
-	private String eduStartDate;
-
-	@Column(name = "edu_end_date")
-	private String eduEndDate;
-
-	@Column(name = "description")
-	private String description;
+	@Column(name = "grad_year")
+	private String gradYear;
 
 	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "resume_id", nullable = false)
@@ -46,14 +37,10 @@ public class Education {
 	public Education() {
 	}
 
-	public Education(String qualification, String institution, String eduLocation, String eduStartDate,
-			String eduEndDate, String description) {
-		this.qualification = qualification;
+	public Education(String degree, String institution, String gradYear) {
+		this.degree = degree;
 		this.institution = institution;
-		this.eduLocation = eduLocation;
-		this.eduStartDate = eduStartDate;
-		this.eduEndDate = eduEndDate;
-		this.description = description;
+		this.gradYear = gradYear;
 	}
 
 	public long getId() {
@@ -64,12 +51,12 @@ public class Education {
 		this.id = id;
 	}
 
-	public String getQualification() {
-		return qualification;
+	public String getDegree() {
+		return degree;
 	}
 
-	public void setQualification(String qualification) {
-		this.qualification = qualification;
+	public void setDegree(String degree) {
+		this.degree = degree;
 	}
 
 	public String getInstitution() {
@@ -80,36 +67,12 @@ public class Education {
 		this.institution = institution;
 	}
 
-	public String getEduLocation() {
-		return eduLocation;
+	public String getGradYear() {
+		return gradYear;
 	}
 
-	public void setEduLocation(String eduLocation) {
-		this.eduLocation = eduLocation;
-	}
-
-	public String getEduStartDate() {
-		return eduStartDate;
-	}
-
-	public void setEduStartDate(String eduStartDate) {
-		this.eduStartDate = eduStartDate;
-	}
-
-	public String getEduEndDate() {
-		return eduEndDate;
-	}
-
-	public void setEduEndDate(String eduEndDate) {
-		this.eduEndDate = eduEndDate;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
+	public void setGradYear(String gradYear) {
+		this.gradYear = gradYear;
 	}
 
 	public Resume getResume() {

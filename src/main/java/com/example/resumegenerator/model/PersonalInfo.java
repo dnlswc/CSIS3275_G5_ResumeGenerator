@@ -20,23 +20,14 @@ public class PersonalInfo {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	@Column(name = "first_name")
-	private String firstName;
+	@Column(name = "full_name")
+	private String fullName;
 
-	@Column(name = "last_name")
-	private String lastName;
+	@Column(name = "resume_email")
+	private String resumeEmail;
 
 	@Column(name = "phone")
 	private String phone;
-
-	@Column(name = "email")
-	private String email;
-
-	@Column(name = "profession")
-	private String profession;
-
-	@Column(name = "summary")
-	private String summary;
 
 	@OneToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "resume_id", nullable = false)
@@ -46,14 +37,10 @@ public class PersonalInfo {
 	public PersonalInfo() {
 	}
 
-	public PersonalInfo(String firstName, String lastName, String phone, String email, String profession,
-			String summary) {
-		this.firstName = firstName;
-		this.lastName = lastName;
+	public PersonalInfo(String fullName, String resumeEmail, String phone) {
+		this.fullName = fullName;
+		this.resumeEmail = resumeEmail;
 		this.phone = phone;
-		this.email = email;
-		this.profession = profession;
-		this.summary = summary;
 	}
 
 	public long getId() {
@@ -64,20 +51,20 @@ public class PersonalInfo {
 		this.id = id;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getFullName() {
+		return fullName;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getResumeEmail() {
+		return resumeEmail;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setResumeEmail(String resumeEmail) {
+		this.resumeEmail = resumeEmail;
 	}
 
 	public String getPhone() {
@@ -86,30 +73,6 @@ public class PersonalInfo {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getProfession() {
-		return profession;
-	}
-
-	public void setProfession(String profession) {
-		this.profession = profession;
-	}
-
-	public String getSummary() {
-		return summary;
-	}
-
-	public void setSummary(String summary) {
-		this.summary = summary;
 	}
 
 	public Resume getResume() {

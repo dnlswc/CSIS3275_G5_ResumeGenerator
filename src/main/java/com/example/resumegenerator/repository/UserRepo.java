@@ -8,8 +8,8 @@ import com.example.resumegenerator.model.User;
 
 public interface UserRepo extends JpaRepository<User, Long> {
 
-	Optional<User> findByUsername(String username);
+	Optional<User> findByEmail(String email);
 
-	Boolean existsByUsername(String username);
+//	Boolean existsByUsername(String username);
 	
 }

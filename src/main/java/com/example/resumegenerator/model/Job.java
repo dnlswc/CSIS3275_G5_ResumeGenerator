@@ -20,23 +20,17 @@ public class Job {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	@Column(name = "title")
-	private String title;
+	@Column(name = "company")
+	private String company;
 
-	@Column(name = "employer")
-	private String employer;
-
-	@Column(name = "job_location")
-	private String jobLocation;
+	@Column(name = "position")
+	private String position;
 
 	@Column(name = "job_start_date")
 	private String jobStartDate;
 
 	@Column(name = "job_end_date")
 	private String jobEndDate;
-
-	@Column(name = "description")
-	private String description;
 
 	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name = "resume_id", nullable = false)
@@ -46,14 +40,11 @@ public class Job {
 	public Job() {
 	}
 
-	public Job(String title, String employer, String jobLocation, String jobStartDate, String jobEndDate,
-			String description) {
-		this.title = title;
-		this.employer = employer;
-		this.jobLocation = jobLocation;
+	public Job(String company, String position, String jobStartDate, String jobEndDate) {
+		this.company = company;
+		this.position = position;
 		this.jobStartDate = jobStartDate;
 		this.jobEndDate = jobEndDate;
-		this.description = description;
 	}
 
 	public long getId() {
@@ -64,28 +55,20 @@ public class Job {
 		this.id = id;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getCompany() {
+		return company;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setCompany(String company) {
+		this.company = company;
 	}
 
-	public String getEmployer() {
-		return employer;
+	public String getPosition() {
+		return position;
 	}
 
-	public void setEmployer(String employer) {
-		this.employer = employer;
-	}
-
-	public String getJobLocation() {
-		return jobLocation;
-	}
-
-	public void setJobLocation(String jobLocation) {
-		this.jobLocation = jobLocation;
+	public void setPosition(String position) {
+		this.position = position;
 	}
 
 	public String getJobStartDate() {
@@ -102,14 +85,6 @@ public class Job {
 
 	public void setJobEndDate(String jobEndDate) {
 		this.jobEndDate = jobEndDate;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
 	}
 
 	public Resume getResume() {
